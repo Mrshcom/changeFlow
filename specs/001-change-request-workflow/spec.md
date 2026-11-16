@@ -136,4 +136,5 @@ People interacting with a request can only perform actions allowed for their cur
 - Authorization uses the user's current role assignment at the time each action is performed. The authentication and role-management mechanism is a design decision for Plan/Research.
 - A reason for returning a request for changes is optional. Approval and return decisions are recorded with reviewer identity and decision time for traceability.
 - No frontend is required for the initial release. Persistence and concurrency mechanisms are selected and justified during Plan/Research.
+- Public email/password registration is part of the initial API as documented in the contract; new accounts receive only Requester permission. Reviewer membership is provisioned through trusted local seeding. This is a reviewable product assumption for the classroom prototype.
 - AI, RAG, MCP, and multi-agent capabilities are outside the initial feature scope.
