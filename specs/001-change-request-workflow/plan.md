@@ -1,6 +1,6 @@
 # Implementation Plan: Change Request Workflow
 
-**Branch**: `001-change-request-workflow` | **Date**: 2026-11-16 | **Spec**: [spec.md](spec.md)
+**Branch**: `main` | **Date**: 2026-11-16 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification from `specs/001-change-request-workflow/spec.md`
 
