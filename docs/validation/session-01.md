@@ -37,3 +37,14 @@ The development server loaded the ignored `.env.local` file. A local HTTP smoke 
 Full `npm audit` reports 8 moderate findings in the development-only ESLint/TypeScript-ESLint toolchain, through `minimatch` used by `@typescript-eslint/typescript-estree`. `npm audit fix` did not clear them; npm proposed a forced downgrade of `eslint-config-next` to 15.5.29, which is incompatible with the selected Next.js 16 stack. The runtime dependency audit is clean. **Owner**: project maintainer. **Rationale**: retain compatible Next.js lint tooling and revisit when its dependency range includes the patched parser dependency; do not force a breaking downgrade.
 
 Automated and local HTTP checks passed as reported above. Formal product-owner acceptance and human review of the assignment deliverables have not been performed here, so this record does not claim product acceptance.
+
+## Convergence validation — Domain unit tests
+
+**Date**: 2026-11-16
+
+Added unit tests for required request input parsing and optional return-reason parsing to close the test-strategy gap identified during Converge.
+
+| Command | Result |
+|---|---|
+| `npm test -- --reporter=dot` | Passed: 6 test files, 36 tests. All 36 passed, including the new domain unit tests. |
+| `npx tsc --noEmit` | Passed with no diagnostics. |

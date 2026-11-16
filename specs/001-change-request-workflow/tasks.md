@@ -199,3 +199,10 @@ Task: T015 Implement request Route Handlers in src/app/api/requests/...
 - `[P]` indicates independent files with no unfinished-task dependency.
 - Tests are included because Assignment.md explicitly requires automated workflow and persisted-state checks; no tests are run by this task-generation step.
 - Keep role assignment server-controlled; never seed or log real passwords in source control.
+
+## Phase 8: Convergence
+
+**Purpose**: Close the remaining gap between the planned test strategy and the implemented test suite.
+
+- [X] T032 [P] Add unit tests for valid input trimming, missing fields, and whitespace-only required fields in `parseRequestInput` in `tests/unit/change-request.test.ts`, as specified by the plan's domain testing strategy (partial).
+- [X] T033 [P] Add unit tests for omitted, null, blank, non-string, and supplied reasons in `parseReturnReason` in `tests/unit/review-decision.test.ts`, as specified by the plan's domain testing strategy (partial).
