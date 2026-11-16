@@ -8,7 +8,7 @@ can create and revise requests; an independent Reviewer can approve or return a 
 - Next.js 16 App Router Route Handlers with TypeScript on Node.js 22.
 - Better Auth 1.7 email/password authentication with database-backed SQLite sessions.
 - `better-sqlite3` for local persistence and parameterized application queries.
-- Vitest integration tests against temporary file-backed SQLite databases.
+- Vitest unit tests for domain behavior and route integration tests against temporary file-backed SQLite databases.
 
 Route Handlers handle HTTP input, sessions, status codes, and response headers. Workflow rules live in
 `src/lib/domain` and `src/lib/application`. Current role memberships live in `UserRole` and are read

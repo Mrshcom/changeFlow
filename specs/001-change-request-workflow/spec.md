@@ -1,10 +1,10 @@
 # Feature Specification: Change Request Workflow
 
-**Feature Branch**: `not-created`
+**Feature Branch**: `main`
 
 **Created**: 2026-11-16
 
-**Status**: Draft
+**Status**: Implemented; pending product acceptance
 
 **Input**: User description: "Build the initial ChangeFlow change request management system described in Assignment.md."
 

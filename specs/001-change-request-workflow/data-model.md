@@ -2,8 +2,8 @@
 
 ## Overview
 
-The model uses Better Auth for user accounts and sessions, plus two application tables for roles,
-change requests, and review decisions. All timestamps are UTC. Application tables refer to the
+The model uses Better Auth for user accounts and sessions, plus three application tables for role
+memberships, change requests, and review decisions. All timestamps are UTC. Application tables refer to the
 Better Auth user identifier; no application table stores passwords or session secrets.
 
 ## Entities
