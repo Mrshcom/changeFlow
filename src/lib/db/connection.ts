@@ -5,7 +5,7 @@ import { dirname, resolve } from "node:path";
 const globalDatabase = globalThis as typeof globalThis & { changeFlowDatabase?: Database.Database };
 
 export function databasePath(): string {
-  return resolve(process.env.DATABASE_PATH ?? "./data/changeflow.sqlite");
+  return resolve(/*turbopackIgnore: true*/ process.env.DATABASE_PATH ?? "./data/changeflow.sqlite");
 }
 
 export function getDatabase(): Database.Database {

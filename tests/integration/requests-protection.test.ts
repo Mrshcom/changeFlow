@@ -90,7 +90,7 @@ describe("visibility, authorization, immutability, and concurrency protection", 
     const pendingRequest = pending(otherRequester.id, "Pending before revoke");
     revokeRole(reviewer.id, "Reviewer", db);
     const response = await list(new Request("http://localhost/api/requests", { headers: { cookie: reviewer.cookie } }));
-    expect(await response.json()).toEqual([]);
+    expect(response.status).toBe(403);
     const decision = await approve(new Request(`http://localhost/api/requests/${pendingRequest.id}/approve`, {
       method: "POST", headers: { cookie: reviewer.cookie, "if-match": `"${pendingRequest.version}"` },
     }), { params: Promise.resolve({ requestId: pendingRequest.id }) });

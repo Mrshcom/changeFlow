@@ -129,9 +129,10 @@ description: "Dependency-ordered implementation tasks for Change Request Workflo
 
 **Purpose**: Finish project documentation and capture real validation evidence required by the assignment.
 
-- [ ] T028 [P] Document the selected Next.js stack, architecture, authentication/role provisioning, setup/run instructions, known SQLite/single-instance limits, and Coding Agent role in `README.md`.
-- [ ] T029 [P] Reconcile the planned setup, migration, seed, run, test, and build commands with the implemented scripts and contract scenarios in `specs/001-change-request-workflow/quickstart.md`.
-- [ ] T030 Run the completed quickstart, `npm test`, and `npm run build`; record the exact commands, test count, actual outcomes, and any remaining failures without fabrication in `docs/validation/session-01.md`.
+- [X] T028 [P] Document the selected Next.js stack, architecture, authentication/role provisioning, setup/run instructions, known SQLite/single-instance limits, and Coding Agent role in `README.md`.
+- [X] T029 [P] Reconcile the planned setup, migration, seed, run, test, and build commands with the implemented scripts and contract scenarios in `specs/001-change-request-workflow/quickstart.md`.
+- [X] T030 Run the completed quickstart, `npm test`, and `npm run build`; record the exact commands, test count, actual outcomes, and any remaining failures without fabrication in `docs/validation/session-01.md`.
+- [X] T031 [P] Answer the five conceptual questions from Assignment.md in Persian, using the project decisions as examples, in `docs/answers/session-01.md`.
 
 ---
 

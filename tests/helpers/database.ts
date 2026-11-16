@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { getMigrations } from "better-auth/db/migration";
 import { getAuthOptions } from "@/lib/auth/auth-options";
-import { assignRole, type Role } from "@/lib/auth/authorization";
+import { assignRole, revokeRole, type Role } from "@/lib/auth/authorization";
 import { closeDatabase } from "@/lib/db/connection";
 
 export type TestDatabase = {
@@ -48,6 +48,9 @@ export async function provisionTestUser(
   const { createAuth } = await import("@/lib/auth/auth");
   const result = await createAuth(db).api.signUpEmail({ body: { name, email, password } });
   for (const role of roles) assignRole(result.user.id, role, db);
+  for (const role of ["Requester", "Reviewer"] as const) {
+    if (!roles.includes(role)) revokeRole(result.user.id, role, db);
+  }
   return { user: result.user, password };
 }
 

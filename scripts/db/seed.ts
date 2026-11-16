@@ -1,4 +1,4 @@
-import { loadEnvConfig } from "@next/env";
+import nextEnv from "@next/env";
 
 type SeedAccount = { name: string; email: string | undefined; password: string | undefined; roles: ("Requester" | "Reviewer")[] };
 
@@ -6,7 +6,7 @@ async function ensureAccount(account: SeedAccount) {
   if (!account.email || !account.password) {
     throw new Error(`Missing seed credentials for ${account.name}; set all SEED_* variables in .env.local.`);
   }
-  const [{ createAuth }, { assignRole }, { getDatabase }] = await Promise.all([
+  const [{ createAuth }, { assignRole, revokeRole }, { getDatabase }] = await Promise.all([
     import("@/lib/auth/auth"),
     import("@/lib/auth/authorization"),
     import("@/lib/db/connection"),
@@ -21,11 +21,14 @@ async function ensureAccount(account: SeedAccount) {
     userId = result.user.id;
   }
   for (const role of account.roles) assignRole(userId, role, db);
+  for (const role of ["Requester", "Reviewer"] as const) {
+    if (!account.roles.includes(role)) revokeRole(userId, role, db);
+  }
   console.log(`Ensured ${account.name} account and requested role memberships.`);
 }
 
 async function seed() {
-  loadEnvConfig(process.cwd());
+  nextEnv.loadEnvConfig(process.cwd());
   const common = { name: "Demo", password: process.env.SEED_REQUESTER_PASSWORD };
   await ensureAccount({
     name: "Requester",

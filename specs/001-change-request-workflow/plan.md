@@ -16,7 +16,7 @@ and conditional state changes so stale writes cannot overwrite newer data.
 
 **Language/Version**: TypeScript on Node.js 22 LTS (local environment: Node 22.20.0).
 
-**Primary Dependencies**: Next.js 16 App Router, Better Auth 1.6.x, `better-sqlite3`, and
+**Primary Dependencies**: Next.js 16 App Router, Better Auth 1.7.x, `better-sqlite3`, and
 TypeScript. Use the Better Auth SQLite integration for identity/session storage and parameterized
 SQL for the small ChangeFlow data model. Pin compatible stable versions in the lockfile during
 implementation.
@@ -105,7 +105,8 @@ src/
     ├── db/connection.ts
     ├── db/migrations/
     ├── http/preconditions.ts
-    └── http/problem-details.ts
+    ├── http/problem-details.ts
+    └── http/route-helpers.ts
 
 scripts/
 └── db/{migrate,seed}.ts

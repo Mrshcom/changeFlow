@@ -1,10 +1,10 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { loadEnvConfig } from "@next/env";
+import nextEnv from "@next/env";
 import { getMigrations } from "better-auth/db/migration";
 
 async function migrate() {
-  loadEnvConfig(process.cwd());
+  nextEnv.loadEnvConfig(process.cwd());
   const [{ getAuthOptions }, { getDatabase }] = await Promise.all([
     import("@/lib/auth/auth-options"),
     import("@/lib/db/connection"),

@@ -27,7 +27,7 @@ export function problem(status: number, code: ProblemCode, detail: string): Resp
 }
 
 export function internalProblem(error: unknown): Response {
-  const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown error";
-  console.error(`ChangeFlow request failed (${message}).`);
+  const type = error instanceof Error ? error.name : "Unknown error";
+  console.error(`ChangeFlow request failed (${type}).`);
   return problem(500, "internal_error", "The request could not be completed.");
 }

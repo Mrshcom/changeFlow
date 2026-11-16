@@ -6,7 +6,7 @@ can create and revise requests; an independent Reviewer can approve or return a 
 ## Stack and architecture
 
 - Next.js 16 App Router Route Handlers with TypeScript on Node.js 22.
-- Better Auth 1.6 email/password authentication with database-backed SQLite sessions.
+- Better Auth 1.7 email/password authentication with database-backed SQLite sessions.
 - `better-sqlite3` for local persistence and parameterized application queries.
 - Vitest integration tests against temporary file-backed SQLite databases.
 

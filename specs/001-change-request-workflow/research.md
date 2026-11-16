@@ -56,6 +56,12 @@ one role field. A fresh role lookup also makes revocation effective on the next 
   the required two roles, dual-role users, and fresh per-request authorization without adding
   privileged admin endpoints.
 
+**Implementation version update**: Use Better Auth 1.7.25 or a compatible patched 1.7.x release.
+The initial 1.6.x range was changed after `npm audit --omit=dev` reported a critical advisory in
+transitive Better Auth adapter packages. The 1.7.25 package preserves the selected SQLite and
+Next.js integration; the authentication, seeding, and role scenarios are covered by integration
+tests.
+
 ### 3. Use a local SQLite file through `better-sqlite3`
 
 **Decision**: Use a single local SQLite database file. Use Better Auth's documented SQLite adapter

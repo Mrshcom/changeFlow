@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type Database from "better-sqlite3";
 import { createTestDatabase, provisionTestUser, sessionCookie, type TestDatabase } from "../helpers/database";
 import { createDraft, submitOwnedRequest } from "@/lib/application/change-request-service";
+import { getUserRoles } from "@/lib/auth/authorization";
 
 describe("review decisions", () => {
   let fixture: TestDatabase;
@@ -38,6 +39,8 @@ describe("review decisions", () => {
     ownerCookie = await signIn("owner", ["Requester"]);
     requesterCookie = await signIn("requester", ["Requester"]);
     dualCookie = await signIn("dual", ["Requester", "Reviewer"]);
+    const reviewer = db.prepare("SELECT id FROM user WHERE email LIKE 'reviewer-%@example.test' ORDER BY createdAt DESC LIMIT 1").get() as { id: string };
+    expect(getUserRoles(reviewer.id, db)).toEqual(["Reviewer"]);
   });
 
   afterAll(() => fixture?.dispose());
